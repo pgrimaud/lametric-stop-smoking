@@ -64,7 +64,7 @@ class MoneySaved
      */
     public function calculateMoneySaved()
     {
-        return (int)($this->days * $this->average * $this->price) . $this->currency;
+        return (int)($this->days * $this->average * $this->price) . $this->currency . ' saved';
     }
 
 }
