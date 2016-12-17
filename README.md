@@ -1,5 +1,5 @@
 # Stop smoking with LaMetric
-This app shows you a day counter and money saving since you stop smoking.
+This app shows you a day counter and money saved since you stop smoking.
 
 ![LaMetric Stop Smoking Index](https://raw.githubusercontent.com/pgrimaud/lametric-stop-smoking/master/images/application.gif)
 
