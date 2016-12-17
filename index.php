@@ -39,6 +39,8 @@ try {
 
 } catch (Exception $e) {
 
+    $response = new \Lametric\Smoking\Response();
+
     echo $response->error();
 
 }
