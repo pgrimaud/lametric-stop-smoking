@@ -74,6 +74,10 @@ class Date
             $stringToReturn .= $diff->d . 'D';
         }
 
+        if ($stringToReturn === '') {
+            $stringToReturn = '0 day';
+        }
+
         return $stringToReturn;
     }
 
