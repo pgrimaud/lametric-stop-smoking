@@ -51,17 +51,17 @@ class MoneySaved
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function calculateTotalCigarettes(): int
+    public function calculateTotalCigarettes(): string
     {
         return (int)($this->days * $this->average) . ' cigarettes';
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function calculateMoneySaved(): int
+    public function calculateMoneySaved(): string
     {
         return (int)($this->days * $this->average * $this->price) . $this->currency . ' saved';
     }
