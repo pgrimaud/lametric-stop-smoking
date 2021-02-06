@@ -1,9 +1,8 @@
 <?php
+
 namespace Lametric\Smoking;
 
-use Lametric\Smoking\Parameter\ParameterAverage;
-use Lametric\Smoking\Parameter\ParameterCurrency;
-use Lametric\Smoking\Parameter\ParameterPrice;
+use Lametric\Smoking\Parameter\{ParameterAverage, ParameterCurrency, ParameterPrice};
 
 class MoneySaved
 {
@@ -54,7 +53,7 @@ class MoneySaved
     /**
      * @return int
      */
-    public function calculateTotalCigarettes()
+    public function calculateTotalCigarettes(): int
     {
         return (int)($this->days * $this->average) . ' cigarettes';
     }
@@ -62,7 +61,7 @@ class MoneySaved
     /**
      * @return int
      */
-    public function calculateMoneySaved()
+    public function calculateMoneySaved(): int
     {
         return (int)($this->days * $this->average * $this->price) . $this->currency . ' saved';
     }

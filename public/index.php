@@ -1,13 +1,19 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
 
-use Lametric\Smoking;
+declare(strict_types=1);
+
+require __DIR__ . '/../vendor/autoload.php';
+$config = require_once __DIR__ . '/../config/parameters.php';
+
+Sentry\init(['dsn' => $config['sentry_key']]);
+
+use Lametric\Smoking\{Date, MoneySaved, Response, Validation};
 
 try {
 
     $objects = [];
 
-    $validation = new Smoking\Validation($_GET);
+    $validation = new Validation($_GET);
     $values     = $validation->getValuesCleaned();
 
     foreach ($values as $parameter => $value) {
@@ -17,14 +23,14 @@ try {
         $objects[$parameter]->setData($value);
     }
 
-    $date = new Smoking\Date();
+    $date = new Date();
     $date->setYear($objects['year']);
     $date->setMonth($objects['month']);
     $date->setDay($objects['day']);
 
     $dateFormatted = $date->calculateDateFormatted();
 
-    $money = new Smoking\MoneySaved();
+    $money = new MoneySaved();
     $money->setAverage($objects['average']);
     $money->setCurrency($objects['currency']);
     $money->setPrice($objects['price']);
@@ -33,13 +39,13 @@ try {
     $cigarettesFormatted = $money->calculateTotalCigarettes();
     $moneySaved          = $money->calculateMoneySaved();
 
-    $response = new \Lametric\Smoking\Response();
+    $response = new Response();
 
     echo $response->setData($dateFormatted, $cigarettesFormatted, $moneySaved);
 
 } catch (Exception $e) {
 
-    $response = new \Lametric\Smoking\Response();
+    $response = new Response();
 
     echo $response->error();
 

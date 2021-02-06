@@ -5,7 +5,7 @@ namespace Lametric\Smoking;
 class Validation
 {
     /** @var array */
-    private $parameters = [
+    private array $parameters = [
         'year',
         'month',
         'day',
@@ -15,7 +15,7 @@ class Validation
     ];
 
     /** @var array */
-    private $valuesCleaned = [];
+    private array $valuesCleaned = [];
 
     /**
      * Validation constructor.
@@ -37,7 +37,7 @@ class Validation
     /**
      * @return array
      */
-    public function getValuesCleaned()
+    public function getValuesCleaned(): array
     {
         return $this->valuesCleaned;
     }

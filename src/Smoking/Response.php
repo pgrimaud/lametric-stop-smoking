@@ -1,4 +1,5 @@
 <?php
+
 namespace Lametric\Smoking;
 
 class Response
@@ -6,26 +7,26 @@ class Response
     const ICON = 'i5162';
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function error()
+    public function error(): string
     {
         return $this->asJson([
             'frames' => [
                 [
                     'index' => 0,
                     'text'  => 'An error occured',
-                    'icon'  => self::ICON
-                ]
-            ]
+                    'icon'  => self::ICON,
+                ],
+            ],
         ]);
     }
 
     /**
      * @param array $data
-     * @return mixed
+     * @return string
      */
-    public function asJson($data = array())
+    public function asJson(array $data = []): string
     {
         header('Content-Type: application/json');
 
@@ -36,28 +37,29 @@ class Response
      * @param $time
      * @param $totalCigarettes
      * @param $moneySaved
-     * @return mixed
+     *
+     * @return string
      */
-    public function setData($time, $totalCigarettes, $moneySaved)
+    public function setData($time, $totalCigarettes, $moneySaved): string
     {
         return $this->asJson([
             'frames' => [
                 [
                     'index' => 0,
                     'text'  => $time,
-                    'icon'  => self::ICON
+                    'icon'  => self::ICON,
                 ],
                 [
                     'index' => 1,
                     'text'  => $totalCigarettes,
-                    'icon'  => self::ICON
+                    'icon'  => self::ICON,
                 ],
                 [
                     'index' => 2,
                     'text'  => $moneySaved,
-                    'icon'  => self::ICON
-                ]
-            ]
+                    'icon'  => self::ICON,
+                ],
+            ],
         ]);
     }
 }

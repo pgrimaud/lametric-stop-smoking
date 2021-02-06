@@ -1,9 +1,8 @@
 <?php
+
 namespace Lametric\Smoking;
 
-use Lametric\Smoking\Parameter\ParameterDay;
-use Lametric\Smoking\Parameter\ParameterMonth;
-use Lametric\Smoking\Parameter\ParameterYear;
+use Lametric\Smoking\Parameter\{ParameterDay, ParameterMonth, ParameterYear};
 
 class Date
 {
